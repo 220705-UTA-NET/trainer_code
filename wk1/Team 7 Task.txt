@@ -1,0 +1,26 @@
+in << string exact1
+in << string exact2
+
+bool identical = true
+
+if (exact1.length == exact2.length){
+	
+	for (n == 0, n < exact1.length, n++){
+
+
+		if (exact1[n] != exact2[n]){
+			identical = false
+			break
+		}
+	}
+	else{
+		identical = false
+	}
+
+if (identcal){
+	out >> "The inputs are identical"
+}
+else{
+	out >> "The inputs are not identical"
+	
+}
