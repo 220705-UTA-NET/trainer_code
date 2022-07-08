@@ -7,9 +7,21 @@ namespace Banking
         private double interestRate; 
 
         // Constructor
+        // public SavingsAccount(string owner, double initialBalance) : base(initialBalance, owner)
+        // {
+        //     this.interestRate = 0.0003;
+        // }
+        // public SavingsAccount(string owner, double initialBalance, double interestRate) : base(initialBalance, owner)
+        // {
+        //     this.interestRate = interestRate;
+        // }
+        public SavingsAccount(string owner, double initialBalance, double interestRate = 0.0003) : base(initialBalance, owner)
+        {
+            this.interestRate = interestRate;
+        }
+
 
         // Methods / behavior
-
         public void ApplyInterest()
         {
             double payment = this.balance * this.interestRate;

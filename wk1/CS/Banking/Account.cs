@@ -1,5 +1,3 @@
-using System;
-
 namespace Banking
 {
     class Account
@@ -7,7 +5,7 @@ namespace Banking
         // Fields / state
         // (access modifier) (type) (name) (initial value)
         protected double balance;
-
+        private List<Transaction> transactions = new List<Transaction>();
         public int accountNumber { get; set; }
         // {
         //     get
@@ -31,9 +29,6 @@ namespace Banking
 
         // Constructor - the set of instructions on how to create an object of this type.
         // (access modifier) (Class-name) (parameter list)
-
-        public Account()
-        {}
 
         public Account(double intialBalance, string owner)
         {
@@ -64,7 +59,7 @@ namespace Banking
             return balanceString;
         }
 
-        public void MakeDeposit(double amount)
+        public void MakeDeposit(double amount, string note = "")
         {
             if (amount <= 0)
             {
@@ -73,10 +68,12 @@ namespace Banking
             else
             {
                 balance += amount;
+                var deposit = new Transaction(amount, DateTime.Now, note);
+                transactions.Add(deposit);
             }
         }
 
-        public void makeWithdrawal(double amount)
+        public void makeWithdrawal(double amount, string note = "")
         {
             if (amount <= 0)
             {
@@ -89,7 +86,21 @@ namespace Banking
             else
             {
                 balance -= amount;
+                var withdrawl = new Transaction(amount, DateTime.Now, note);
+                transactions.Add(withdrawl);
             }
+        }
+
+        public string getAccountHistory()
+        {
+            var report = new System.Text.StringBuilder();
+
+            report.AppendLine("Date\t\tAmount\t\tNote");
+            foreach(var item in transactions)
+            {
+                report.AppendLine($"{item.date.ToShortDateString()}\t{item.amount}\t{item.note}");
+            }
+            return report.ToString();
         }
 
     }
