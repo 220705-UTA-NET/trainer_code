@@ -1,6 +1,6 @@
 namespace Banking
 {
-    class Account
+    abstract class Account
     {
         // Fields / state
         // (access modifier) (type) (name) (initial value)
@@ -43,23 +43,30 @@ namespace Banking
         // Methods / behavior
         // (access modifier) (return type) (name) (parameters)
 
-        public void setAccountNumber(int accountNumber)
+
+        // public abstract double DisplayBalance(); // abstract method - must be overridden in derived classes.
+        // public virtual double DisplayBalance(); // virtual method - can be overridden in derived classes.
+
+
+
+
+        public virtual void setAccountNumber(int accountNumber)
         {
             this.accountNumber = accountNumber;
         }
 
-        public int getAccountNumber()
+        public virtual int getAccountNumber()
         {
             return accountNumber;
         }
 
-        public string DisplayBalance()
+        public virtual string DisplayBalance()
         {
-            string balanceString = balance.ToString();
+            string balanceString = "From Account: " + balance.ToString();
             return balanceString;
         }
 
-        public void MakeDeposit(double amount, string note = "")
+        public virtual void MakeDeposit(double amount, string note = "")
         {
             if (amount <= 0)
             {
@@ -73,7 +80,7 @@ namespace Banking
             }
         }
 
-        public void makeWithdrawal(double amount, string note = "")
+        public virtual void makeWithdrawal(double amount, string note = "")
         {
             if (amount <= 0)
             {
@@ -91,7 +98,7 @@ namespace Banking
             }
         }
 
-        public string getAccountHistory()
+        public virtual string getAccountHistory()
         {
             var report = new System.Text.StringBuilder();
 

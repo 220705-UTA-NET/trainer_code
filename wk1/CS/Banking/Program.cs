@@ -6,9 +6,9 @@ namespace Banking
     {
         static void Main(string[] args)
         {
-            Account newAccount = new Account(1000, "Eunice");
+            Account newAccount = new SavingsAccount("Eunice",1000);
             Account secondAccount = new SavingsAccount("James", 500);
-            Account thirdAccount = new Account(100, "John");
+            Account thirdAccount = new SavingsAccount("John", 100);
 
             // Console.WriteLine(newAccount.accountNumber.ToString());
             // Console.WriteLine(secondAccount.accountNumber.ToString());
@@ -27,6 +27,7 @@ namespace Banking
             // string Transactions = secondAccount.getAccountHistory();
             // Console.WriteLine(Transactions);
             Console.WriteLine(secondAccount.getAccountHistory());
+            Console.WriteLine(secondAccount.DisplayBalance());
 
 
   

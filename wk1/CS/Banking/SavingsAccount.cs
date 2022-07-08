@@ -27,5 +27,11 @@ namespace Banking
             double payment = this.balance * this.interestRate;
             this.MakeDeposit(payment);
         }
+
+        public override string DisplayBalance() // the use of "override" denotes that this is overriding the 
+        //method from the abstact class it inherited
+        {
+            return ("From SavingsAccount: " + base.DisplayBalance());
+        }
     }
 }
