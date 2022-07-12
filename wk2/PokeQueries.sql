@@ -45,8 +45,11 @@ JOINS - linking the keys in multiple tables to return more relevent data to a qu
 -- )
 -- VERB NOUN 
 
+
+-- DROP TABLE PokemonType;
 -- DROP TABLE Pokemon;
 -- DROP TABLE Type;
+
 
 CREATE TABLE Pokemon
 (
@@ -74,7 +77,7 @@ many-to-many - for many entries in table A, there are many related entries in ta
 
 CREATE TABLE PokemonType
 (
-    Id INT NOT NULL UNIQUE PRIMARY KEY IDENTITY,
+    Id INT NOT NULL PRIMARY KEY IDENTITY,
     PokemonId INT NOT NULL FOREIGN KEY REFERENCES Pokemon (Id)
         ON DELETE CASCADE,
     TypeId INT NOT NULL FOREIGN KEY REFERENCES Type (Id)
@@ -83,3 +86,16 @@ CREATE TABLE PokemonType
 
 -- CASCADE triggers the specified column to also delete/update when the FK entry is affected
 
+
+-- Insert data into the tables
+
+INSERT INTO Pokemon (Name, Height, Weight) VALUES
+('Charizard', 67, 215),
+('Mudkip', 24, 45);
+
+
+INSERT INTO Type (Name) VALUES
+('Fire'),
+('Water'),
+('Dragon'),
+('Grass');
