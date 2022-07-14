@@ -5,8 +5,8 @@ namespace School
     class Student : Person
     {
         // Fields
-        private double GPA = 0.0;
-        private int YearsCompleted;
+        public double GPA = 0.0;
+        public int YearsCompleted;
 
         // Constructor
         public Student(string name, string email, string phone, string address1, string address2,
