@@ -81,3 +81,107 @@ WHERE Genre.Name != 'Latin';
 -- 4. delete one of the employees you inserted.
 
 -- 5. delete customer Robert Walter.
+
+
+
+--schema 
+-- dbo is the default schema
+
+-- Create Schema newschema;
+-- CREATE TABLE NewTable;
+-- SELECT * FROM newschema.NewTable;
+
+
+SELECT * FROM dbo.Customer;
+
+SELECT FirstName From Customer WHERE LEN(FirstName) = 6;
+
+-- User-Defined Functions
+-- Functions CAN NOT modify the data of a table, they are "read-only"
+-- Only really useful for SELECT statements
+
+Go --use GO to "batch" your statements
+CREATE FUNCTION dbo.TotalNumberOfCustomers()
+RETURNS INT
+AS
+    BEGIN  
+        DECLARE @result INT;
+        SELECT @result = COUNT(*) FROM dbo.Customer;
+        RETURN @result;
+    END
+GO
+
+SELECT dbo.TotalNumberOfCustomers();
+
+SELECT COUNT(*) FROM dbo.Customer;
+
+
+GO
+CREATE FUNCTION dbo.CustomersWithFirstNameLengthOf( @length INT )
+RETURNS TABLE -- Stored / user defined functions can return an entire table
+AS
+    RETURN( SELECT * FROM dbo.Customer WHERE LEN(FirstName) = @length);
+GO
+
+-- use the select statement on the return from the function, because IT IS A TABLE!
+SELECT FirstName FROM dbo.CustomersWithFirstNameLengthOf(7);
+
+
+-- Stored Procedures are similar to a function, except that they CAN modify the database.
+GO
+CREATE OR ALTER PROCEDURE dbo.UpdateAllCustomers(@postalcode INT, @modified INT OUTPUT) -- use OUTPUT as a parameter to take the place of a RETURN
+AS
+BEGIN
+    BEGIN TRY
+        IF (NOT EXISTS (SELECT * FROM dbo.Customer))
+        BEGIN
+            RAISERROR ('No data found in table',15, 1);
+        END
+        SET @modified = (SELECT COUNT(*) FROM dbo.Customer);
+        UPDATE dbo.Customer SET PostalCode = @postalcode;
+    END TRY
+    BEGIN CATCH
+        PRINT 'ERROR'
+    END CATCH
+END
+GO
+
+
+SELECT PostalCode FROM dbo.Customer;
+
+DECLARE @result INT;
+EXECUTE dbo.UpdateAllCustomers 98765, @result OUTPUT;
+SELECT @result;
+
+SELECT PostalCode FROM dbo.Customer;
+
+
+-- Triggers
+
+-- Some code that will run instead of, or after
+-- you insert, update, or delete to a specified table
+
+GO
+CREATE TRIGGER Playlist.DateModified ON Playlist.Name
+AFTER UPDATE
+AS
+    BEGIN
+        UPDATE Playlist.Name
+        SET DateModified = SYSUTCDATETIME() -- the SQL way to retireve the current system date time convert to the UTC region
+        WHERE Id IN (SELECT Id FROM Inserted) --triggers get access to two special table-valued variables, Inserted and Deleted.
+    END
+GO
+
+GO
+CREATE TRIGGER PreventDelete ON dbo.Playlist
+INSTEAD OF DELETE
+AS
+    BEGIN TRY
+    BEGIN
+        RAISERROR('Delete not authorized', 15, 1)
+    END
+    END TRY
+    BEGIN CATCH
+        PRINT 'ERROR'
+    END CATCH
+GO
