@@ -73,6 +73,30 @@ namespace CoinFlipper.Data
         public string GetPlayerRecords(string player)
         {
             StringBuilder result = new StringBuilder();
+
+            SqlConnection connection = new SqlConnection(_connectionString);
+            connection.Open();
+
+            string cmdText = @"SELECT Timestamp, P.Name, PC.Name, FR.Name 
+                               FROM CF.Round
+                               INNER JOIN CF.Player AS P ON PlayerID = P.Id
+                               LEFT JOIN CF.Flips AS PC ON PlayerChoice = PC.Id
+                               INNER JOIN CF.Flips AS FR ON FlipResult = FR.Id
+                               WHERE P.Name = @player;";
+
+            using SqlCommand cmd = new SqlCommand(cmdText, connection);
+            cmd.Parameters.AddWithValue("@player", player);
+
+            using SqlDataReader reader = cmd.ExecuteReader();
+
+            while(reader.Read())
+            {
+                result.Append(reader.GetDateTimeOffset(0));
+                result.Append(reader.GetString(1));
+                result.Append(reader.GetString(2));
+                result.Append(reader.GetString(3));
+            }
+
             return result.ToString();
         }
     }

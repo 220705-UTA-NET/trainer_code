@@ -4,10 +4,10 @@ using System.Text;
 
 namespace CoinFlipper.App
 {
-    internal class Game
+    public class Game
     {
         // Fields
-        string? player;
+        public string? player { get; set; }
         bool gameLoop = true;
         string? choice;
         private readonly IRepository repo;
@@ -51,7 +51,7 @@ namespace CoinFlipper.App
                     }
                     case "3":
                     {
-                        Console.WriteLine();
+                        Console.WriteLine(GetRecords());
                         break;
                     }
                     default:
@@ -181,20 +181,16 @@ namespace CoinFlipper.App
 
         public string GetRecords()
         {
-
             StringBuilder sb = new StringBuilder();
 
             if (player == null)
-            { 
-                // append sb to inform user that you need a player entered before you try to get their records
+            {
+                sb.AppendLine("Player name must be entered to display records.");
             }
-            
-
             else
             {
+                sb.Append($"Displaying Player Records for {player}: ");
                 sb.AppendLine(repo.GetPlayerRecords(player));
-
-
             }
             return sb.ToString();
         }
