@@ -71,3 +71,14 @@ CREATE TABLE CourseRequirements(
 
 
 SELECT * FROM School.Students;
+
+-- DROP SCHEMA School;
+
+-- DROP TABLE dbo.Certifications;
+-- DROP TABLE dbo.CourseRequirements;
+-- DROP TABLE dbo.Courses;
+-- DROP TABLE dbo.Requirements;
+-- DROP TABLE dbo.StudentCourses;
+-- DROP TABLE dbo.TeacherCertification;
+-- DROP TABLE School.Students;
+-- DROP TABLE School.Teachers;
