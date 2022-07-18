@@ -1,5 +1,6 @@
 ﻿using CoinFlipper.Logic;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace CoinFlipper.Data
 {
@@ -67,6 +68,12 @@ namespace CoinFlipper.Data
 
             cmd.ExecuteNonQuery();
             connection.Close();
+        }
+
+        public string GetPlayerRecords(string player)
+        {
+            StringBuilder result = new StringBuilder();
+            return result.ToString();
         }
     }
 }

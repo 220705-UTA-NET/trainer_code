@@ -1,5 +1,6 @@
 ﻿using CoinFlipper.Data;
 using CoinFlipper.Logic;
+using System.Text;
 
 namespace CoinFlipper.App
 {
@@ -21,9 +22,9 @@ namespace CoinFlipper.App
 
         // Methods
 
-        public void StartNewGame()
+        public void StartNewGame(string playersel = "")
         {
-
+            choice = playersel;
             while (gameLoop)
             {
                 choice = MainMenu();
@@ -46,6 +47,11 @@ namespace CoinFlipper.App
                     case "2":
                     {
                         ReadyRound();
+                        break;
+                    }
+                    case "3":
+                    {
+                        Console.WriteLine();
                         break;
                     }
                     default:
@@ -171,6 +177,26 @@ namespace CoinFlipper.App
                 return;
             }
             repo.CreateNewRound(player, playerChoice, round);
+        }
+
+        public string GetRecords()
+        {
+
+            StringBuilder sb = new StringBuilder();
+
+            if (player == null)
+            { 
+                // append sb to inform user that you need a player entered before you try to get their records
+            }
+            
+
+            else
+            {
+                sb.AppendLine(repo.GetPlayerRecords(player));
+
+
+            }
+            return sb.ToString();
         }
     }
 }

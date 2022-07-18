@@ -7,5 +7,6 @@ namespace CoinFlipper.Data
     {
         void CreateNewRound(string player, int playerChoice, Round round);
         int EnsurePlayerExistsAndGetId(SqlConnection connection, string player);
+        string GetPlayerRecords(string player);
     }
 }
