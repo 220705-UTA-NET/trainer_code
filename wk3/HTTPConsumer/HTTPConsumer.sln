@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32630.192
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPConsumer.App", "HTTPConsumer.App\HTTPConsumer.App.csproj", "{FF27DFF0-6E13-4B79-88E1-D31824DACE79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTPConsumer.DTO", "HTTPConsumer.DTO\HTTPConsumer.DTO.csproj", "{D342E6FB-DC98-4AAF-B861-A15CE8B6BC4B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FF27DFF0-6E13-4B79-88E1-D31824DACE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF27DFF0-6E13-4B79-88E1-D31824DACE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF27DFF0-6E13-4B79-88E1-D31824DACE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF27DFF0-6E13-4B79-88E1-D31824DACE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D342E6FB-DC98-4AAF-B861-A15CE8B6BC4B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D342E6FB-DC98-4AAF-B861-A15CE8B6BC4B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D342E6FB-DC98-4AAF-B861-A15CE8B6BC4B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D342E6FB-DC98-4AAF-B861-A15CE8B6BC4B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F316FE28-9F5E-495F-A1B4-1FB662AD141E}
+	EndGlobalSection
+EndGlobal
