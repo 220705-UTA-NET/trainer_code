@@ -6,4 +6,3 @@
 *both the console app and api must be written in C# for .NET 6.0*
 
 ### A SQL database
-

@@ -18,20 +18,32 @@ if (app.Environment.IsDevelopment())
 // by default (customizable), for sercurity reasons, this built-in middleware 
 // only serve files that are inside a folder named wwwroot insinde the project
 app.UseStaticFiles();
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 
 
 // app.MapGet is part of "minimal api"
-app.MapGet("/", () => "hello world");
+//app.MapGet("/", () => "hello world");
+
+//app.MapGet("/map1", async context =>
+//{
+//    await context.Response.WriteAsync("Hello from map1");
+//});
+
+//app.MapGet("/map2", async context =>
+//{
+//    await context.Response.WriteAsync("Hi there!");
+//});
 
 
 // after you have a WebApplication, you need to construct it's request-processing pipeline using components called "middleware"
 // each middleware runs in sequence
 // "Use" middleware could be anywhere in the pipeline
 
-
-
-
-app.UseMiddleware<RequireAuthMiddleware>();
+//app.UseMiddleware<RequireAuthMiddleware>();
 // all of this below is replaced by this ^^
 //app.Use(async (context, next) =>
 //{
@@ -52,7 +64,8 @@ app.UseMiddleware<RequireAuthMiddleware>();
 //});
 
 
-app.UseMiddleware<SerializeDataMiddleware>();
+//app.UseMiddleware<SerializeDataMiddleware>();
+
 //app.Use(async (context, next) =>
 //{
 //    if (context.Response.ContentType == "text/plain")
@@ -70,3 +83,15 @@ app.UseMiddleware<SerializeDataMiddleware>();
 
 
 app.Run();
+
+
+
+
+
+
+
+// Your challenge (should you choose to accept it, and even if you don't) is to create new controllers for this API that...
+// - Accept data from the path (not from the body of the request)
+// - keep track of some structured data in a custom class, and use serialization to respond with the data.
+// - treat the "path" as a relative path on the servers file system. the response shoudl include the content of the file at
+//      that path, or return 404 if no such file exists.
