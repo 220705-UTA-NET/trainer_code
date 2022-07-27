@@ -1,10 +1,16 @@
-
-
 using TrainingAPI.Data;
 
-string connectionString = await File.ReadAllTextAsync("C:/Revature/ConnectionStrings/220705-DB.txt");
-
 var builder = WebApplication.CreateBuilder(args);
+
+// Connection Strings and environment variables
+// Argument, Hardcoded, File-read, User Secrets, Environment Variabels are all
+// options to retrieve a secret (like a connection string).
+
+// the order of Environmental Arguments/ Values is Environment variable first (if there is one), then User Secret, then appsettings.json
+
+
+// string connectionString = await File.ReadAllTextAsync("C:/Revature/ConnectionStrings/220705-DB.txt");
+string connectionString = builder.Configuration.GetConnectionString("connectionString");
 
 builder.Services.AddControllers();
 

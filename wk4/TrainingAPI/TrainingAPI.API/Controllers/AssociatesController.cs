@@ -39,9 +39,6 @@ namespace TrainingAPI.API.Controllers
             }
 
             return associates.ToList();
-
         }
-
-
     }
 }

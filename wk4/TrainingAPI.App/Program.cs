@@ -6,7 +6,7 @@ namespace TrainingAPI.App
     {
         // Fields
         public static readonly HttpClient client = new HttpClient();
-        public static string uri = "https://localhost:7059/api/Associates";
+        public static string uri = "https://demowebapp-hawkins-220705.azurewebsites.net/api/Associates";
         
         
         // Methods
