@@ -1,8 +1,8 @@
 # Group Exercises for Understanding GitHub
 
 > Still confused about Git? Check out [this video](https://app.pluralsight.com/course-player?clipId=8dc1a5de-01c5-452e-a45f-d2f77a980e1c)! :point_left: <br>
-> More resources are available on the [resources page](https://github.com/220705-UTA-NET/trainer_code/wk4/git-workshop/resources.md) <br>
-> If you get stuck, use the [cheatsheet](https://github.com/220705-UTA-NET/trainer_code/wk4/git-workshop/cheatsheet.md).
+> More resources are available on the [resources page](https://github.com/220705-UTA-NET/trainer_code/blob/main/wk4/git-workshop/resources.md) <br>
+> If you get stuck, use the [cheatsheet](https://github.com/220705-UTA-NET/trainer_code/blob/main/wk4/git-workshop/cheatsheet.md).
 
 <br>
 

@@ -20,3 +20,6 @@ https://app.pluralsight.com/course-player?clipId=8dc1a5de-01c5-452e-a45f-d2f77a9
   + Git Pretty: http://justinhileman.info/article/git-pretty/ (anything visual makes learning git much easier...)
   + Intermediate: http://www.raywenderlich.com/74258/git-tutorial-intermediate
   + Visualize your Git with **SourceTree**: http://www.sourcetreeapp.com/
+
+* GitHub Actions: https://docs.github.com/en/actions
+  + Docker Actions: https://github.com/marketplace?type=actions&query=docker+
