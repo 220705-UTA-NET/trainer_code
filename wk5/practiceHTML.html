@@ -1,0 +1,153 @@
+<!-- HTML - Hypertext Markup Language -->
+
+<!DOCTYPE html> <!-- The DOCTYPE tag defines that this page should be read with/as HTML -->
+
+<html lang="en"> <!-- tags generally (with few exceptions) have opening and closing pairs
+                        The lang attribute defines the language of the document. -->
+                <!-- everything that makes up an HTML page is an "element" -->        
+<head> <!-- the head element defines metadata for the page -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<!-- the body of the page is the content that we will see -->
+<body>
+
+    you can just start writing text in the body, but it's pretty bad form. a better option is to use the approptiate tags.
+
+    <p> this is a paragraph tag.</p>
+    <p> Paragraph tags carry some basic information about formatting as well.</p>
+
+    <p> the live preview is kinda cool! </p>
+
+    <p> there are tags that help us add formatting for headings and titles. </p>
+
+    <h1> this is a heading tag </h1>
+    <h2> this is a heading tag </h2>
+
+    <p> this is just <b>some</b> <strong>general</strong> paragraph</p>
+    <p> this text we can <i>play</i> with a <em>bit</em> more and <u>add</u> some formatting</p>
+    <p> lets play with abbreviations! <abbr>HTML</abbr> (Hypertext Markup Language) </p>
+    
+
+
+    <!-- if everything is made of elements, and we use tags to declare them,
+         the attributes of a tag help us modify the element-->
+
+        <p class="my-class"> this is a paragraph tag </p>
+
+        <!-- the paragraph tag is modified by the class attriute -->
+
+        <!-- the global attributes are: class, id, style, title -->
+
+        <!-- class = Provides a way of classifying and grouping similar elements.
+            NOT unique, and can be shared with other elements and in other files.-->
+        <!-- id = provides a document-wide unique identifier for an element -->
+        <!-- style = adds styling directly to an element. 
+            it is recomended to use external css though. -->
+        <!-- title = used to attach subtexual explanation to an element. -->
+
+
+    <div class="div1">
+        <p> this paragraph element is inside a div element. this helps us later on when we need to pinpoint a section of the page</p>
+        <div class="div1" style="color:red">
+            <!-- inside the " " of a style attribute, you're writing CSS-->
+            <p class="div1">we can even put a div, inside of a div!</p>
+        </div>
+    </div>
+
+
+    <div>
+        <p style = "color:blue">
+            this is some text inside of a <span style="color:orange">paragraph</span> element, inside of a div element!
+        </p>
+    </div>
+
+    <!-- the inline attribute will ovwerwrite any other -->
+
+    <div>
+        <img src="https://www.w3schools.com/howto/img_avatar.png" alt="avatar" style="width:100px">
+    </div>
+
+    <!-- lists come in multiple flavors, un-ordered or ordered -->
+    <div>
+        <ul>
+            <li>this is an item</li>
+            <li>this is another item</li>
+        </ul>
+
+        <ol>
+            <li>this is an item</li>
+            <li>this is another item</li>
+        </ol>
+    </div>
+
+    <!-- tables are do-able, but have fallen out of favor -->
+    <table>
+        <thead>
+            <th> city</th>
+            <th> state</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>New York</td>
+                <td>NY</td>
+            </tr>
+            <tr>
+                <td>Los Angeles</td>
+                <td>CA</td>
+            </tr>
+            <tr>
+                <td>Chicago</td>
+                <td>IL</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <!-- the action attribute specifies WHERE the form data is sent,
+        the method specifies HOW the data is sent (we can only do GET and POST through form) -->
+    <form action="/action_page.php" method="get">
+        <label for="fname">First Name:</label> <!-- the label is just that, a label for the input-->
+        <input type="text" id="fname" name="fname"> <!-- the input is what we are collecting-->
+        <br>
+        <label for="lname">Last Name:</label>
+        <input type="text" id="lname" name="lname">
+        <br>
+        <input type="submit" value="Submit">
+        <br>
+        <!-- we have attributes that we can add to an input of a form, like "required" that forces
+        the user to fill the value before sending the data. -->
+
+        <label>
+            Checkbox:
+            <input type="checkbox" name="checkbox1">
+        </label>
+        <br>
+        <input type="color" name="favcolor">
+        <br>
+        <input type="date" name="bday">
+        <br>
+        <input type="datetime-local" name="bdaytime">
+        <br>
+        <input type="email" name="email">
+        <br>
+        <input type="password" name="pwd">
+        <br>
+        <input type="file" name="file">
+        <br>
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi">Audi</option>
+        </select>
+
+        <br> <!-- LINE BREAKS!-->
+
+
+    </form>
+
+</body>
+</html>
