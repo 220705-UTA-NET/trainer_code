@@ -1,0 +1,71 @@
+/* element selector, and list selector */
+h1, h3, img{
+    background-color: yellow;
+    color:brown;
+    font-size: 20px;
+}
+/* class selector */
+.newClass{
+    background-color: red;
+    color:white;
+    font-size: 30px;
+}
+/* id selector */
+#newID{
+    background-color: blue;
+    color:ffffff;
+    font-size: 40px;
+}
+/* universal selector */
+*{            
+    color:black;
+    font-size: 20px;
+} 
+/* concatenation of selectors */
+p .newClass{
+    background-color: green;
+    color:white;
+    font-size: 60px;
+}  
+table, th, td{
+    padding: 5px;
+    border: 1px solid black;
+   
+    
+}
+td {
+    text-align: right;
+}
+
+/* CSS Box Model
+
+content - the thing in the box
+padding - the space between content and border
+border - the "line" between padding and margin
+margin - usually invisible space between one 
+    element and the start of the next
+    
+    
+    content       |  |   +
+    ______________|  |   +
+    padding         |   +
+    ________________|   +
+                        +
+    border              +
+    +++++++++++++++++++++
+    margin
+    ---------------------------------
+    margin
+    +++++++++++++++++++++
+    border
+    _______________________
+    padding
+    ________________
+    content */
+
+
+    /* pseudo-classes */
+    a:link{ color: blue;}
+    a:visited{ color: red;}
+    a:hover{ color: green;}
+    a:active{ color: yellow;}
