@@ -148,32 +148,37 @@ sayHi();
 
 
 // lets declare some functions...
-function addNums(num1, num2)
-{
-    return num1 + num2;
+
+try{
+    function addNums(num1, num2)
+    {
+        return num1 + num2;
+    }
+
+    function multiplyNums(b)
+    {
+        return num1 * num2;
+    }
+
+    function doMath(num1, num2, func)
+    {
+        return func(num1, num2);
+    }
+
+    // assign those functions to variables...
+    let runFunc = addNums;
+    console.log(doMath(5, 6, runFunc));
+
+    // and then change the function to multiplyNums,
+    // without changing the call to doMath!
+
+    runFunc = multiplyNums;
+    console.log(doMath(5, 6, runFunc));
 }
-
-function multiplyNums(num1, num2)
+catch(oops)
 {
-    return num1 * num2;
+    alert('not again!');
 }
-
-function doMath(num1, num2, func)
-{
-    return func(num1, num2);
-}
-
-// assign those functions to variables...
-
-let runFunc = addNums;
-console.log(doMath(5, 6, runFunc));
-
-// and then change the function to multiplyNums,
-// without changing the call to doMath!
-
-runFunc = multiplyNums;
-console.log(doMath(5, 6, runFunc));
-
 
 // Arrow Functions
 
@@ -193,3 +198,69 @@ let newFunc2 = n => alert('hi again' + n);
 
 newFunc();
 console.log(newFunc);
+
+
+
+// Try Catch Finally in JS
+
+// JS has one error object, it has a name, a message, and a stack trace
+// (a list of functions that caused the error)
+
+// Error(message);
+// SyntaxError(message);
+// ReferenceError(message);
+
+try 
+{
+    alert('Starting try runs...');
+
+    lalala;
+
+    alert('Ending try runs...');
+} catch (err)
+{
+    alert('Error has occurred');
+}
+finally
+{
+    alert('Finally runs...');
+}
+
+
+
+// Scope and Closure
+// scope is the area of memory in which a variable is defined
+// closure is the ability to access a variable from within a function
+// this particular exmple is Lexical Scoping
+
+function init()
+{
+    var name = "Mozilla";
+    function displayName()
+    {
+        alert(name);
+    }
+    displayName();
+}
+init();
+
+function makeAdder(x)
+{
+    return function(y)
+    {
+        return x + y;
+    };
+}
+
+let add5 = makeAdder(5);
+let add10 = makeAdder(10);
+
+console.log(add5(2));
+console.log(add10(2));
+
+
+
+
+
+
+
