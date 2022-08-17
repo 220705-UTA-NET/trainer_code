@@ -1,24 +1,8 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
-
-app.MapGet("/", () =>
-{
-    string Hello = "Hello World!";
-    return Hello;
-});
-
-app.MapGet("/time", () =>
-{
-    string time = "The time is: " + DateTime.Now;
-    return time;
-});
 
 var summaries = new[]
 {
@@ -38,7 +22,20 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 });
 
+app.MapGet("/time", () =>
+{
+    return DateTime.Now;
+});
+
+app.MapGet("/", () =>
+{
+    string Hello = "Hello there! I'm alive!";
+    return Hello;
+});
+
 app.Run();
+
+
 
 internal record WeatherForecast(DateTime Date, int TemperatureC, string? Summary)
 {
