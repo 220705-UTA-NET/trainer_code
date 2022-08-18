@@ -1,8 +1,22 @@
 var builder = WebApplication.CreateBuilder(args);
 
+string MyAllowAllOrigins = "_myAllowAllOrigins";
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy( name: MyAllowAllOrigins,
+        builder =>
+        {
+            builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();                    
+        });
+});
+
 var app = builder.Build();
 
 app.UseHttpsRedirection();
+
 
 var summaries = new[]
 {
@@ -32,6 +46,8 @@ app.MapGet("/", () =>
     string Hello = "Hello there! I'm alive!";
     return Hello;
 });
+
+app.UseCors(MyAllowAllOrigins);
 
 app.Run();
 

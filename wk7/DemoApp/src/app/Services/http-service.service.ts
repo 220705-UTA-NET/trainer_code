@@ -10,13 +10,19 @@ import { post } from '../Models/post';
 
 export class HttpService {
 
-  private rootUrl = 'http://jsonplaceholder.typicode.com/';
+  private jsonplaceholder = 'https://jsonplaceholder.typicode.com/';
+  private helloapp = 'http://localhost:8080/';
 
   constructor(private http: HttpClient) { }
   
   public getPosts(): Observable<post[]> 
   {
-    return this.http.get<post[]>(this.rootUrl + 'posts');
+    return this.http.get<post[]>(this.jsonplaceholder + 'posts');
+  }
+
+  public getTime(): Observable<any>
+  {
+    return this.http.get<any>(this.helloapp + 'time');
   }
 }
 

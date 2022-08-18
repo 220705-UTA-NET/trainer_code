@@ -10,6 +10,7 @@ import { post } from '../Models/post';
 export class TimeComponent implements OnInit {
 
   posts: any;
+  result: any;
 
   constructor(public PS: HttpService) { }
 
@@ -19,6 +20,14 @@ export class TimeComponent implements OnInit {
   displayPosts() {
     this.PS.getPosts().subscribe((data) => {
       this.posts = data;
+      this.result = null;
+    });
+  }
+
+  displayTime() {
+    this.PS.getTime().subscribe((data) => {
+      this.result = data;
+      this.posts = null;
     });
   }
 }
