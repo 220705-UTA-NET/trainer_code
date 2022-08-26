@@ -1,0 +1,12 @@
+abaaaabbabababa
+15
+aaaaaaabbbbbbbbbbbb
+7
+abaabaabababababababab
+22
+abababaaaaaabbb
+12
+aaaaaaaaaaaaaaabaaaaabb
+21
+aaabaaaaaaaaaaaabaaaaabb
+22
