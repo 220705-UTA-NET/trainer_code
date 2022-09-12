@@ -16,7 +16,7 @@ services:
         max_attempts: 3
     ports:
       - target: 80
-        published: 8080
+        published: 7069
         protocol: tcp
       - target: 443
         published: 4443
@@ -37,9 +37,9 @@ services:
         delay: 5s
         max_attempts: 3
     ports:
-    - target: 80
-      published: 3000
-      protocol: tcp
-    - target: 443
-      published: 3443
-      protocol: tcp
+      - target: 80
+        published: 9999
+        protocol: tcp
+      - target: 443
+        published: 9998
+        protocol: tcp

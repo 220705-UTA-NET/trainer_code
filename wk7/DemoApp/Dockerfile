@@ -4,6 +4,6 @@ COPY . .
 RUN npm ci && npm run build
 
 FROM nginx:alpine
-COPY --from=build /app/dist/* /usr/share/nginx/html
+COPY --from=build /app/dist/* /usr/share/nginx/html/
 EXPOSE 80
-EXPOSE 443
+EXPOSE 443 
